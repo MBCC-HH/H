@@ -1,0 +1,14 @@
+#!name=Hisee X 去广告
+#!desc=拦截 Hisee X 广告配置与第三方广告追踪
+#!author=h
+
+[Rule]
+# 拦截 yfanads 广告追踪器
+DOMAIN-SUFFIX, yfanads.com, REJECT
+
+[Rewrite]
+# 拦截 Hisee X 的广告配置文件
+^https?:\/\/ota\.hiseex\.com\/api\/user\/app\/ad\/conf _ reject-200
+
+[MITM]
+hostname = ota.hiseex.com, *.yfanads.com
