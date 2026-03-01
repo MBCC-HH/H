@@ -1,0 +1,17 @@
+#!name=中国移动去广告 (拦截版)
+#!desc=直接拦截中国移动App开屏、悬浮窗及探索页广告
+#!author=网络分享
+
+[Rewrite]
+# 拦截开屏/初始化广告
+^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/init\/startInit reject
+
+# 拦截探索页广告
+^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/explorePage\/getAdverList reject
+
+# 拦截多个悬浮窗
+^https?:\/\/(client\.app\.coc|app)\.10086\.cn\/biz-orange\/DN\/emotionMarket reject
+
+[MitM]
+# 必须解析这两个域名才能实现精准拦截
+hostname = client.app.coc.10086.cn, app.10086.cn
