@@ -1,18 +1,17 @@
-#!name = 中国移动去广告
-#!desc = 移除中国移动 App 启动广告、探索页广告及营销悬浮窗。
-#!author = YourName
-#!icon = https://raw.githubusercontent.com/Orion-T/G-Icons/main/10086.png
-#!date = 2024-05-20 12:00:00
+#!name=中国移动去广告
+#!desc=拦截中国移动App开屏初始化及多个悬浮窗广告
+#!author=h
 
 [Rewrite]
-# 拦截开屏启动初始化
-^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/init\/startInit reject
+# 拦截开屏与初始化广告
+^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/init\/startInit _ reject-200
 
-# 拦截探索页广告列表
-^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/explorePage\/getAdverList reject
+# 拦截广告列表下发
+^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/explorePage\/getAdverList _ reject-200
 
-# 拦截多个位置的悬浮窗与营销弹窗
-^https?:\/\/(client\.app\.coc|app)\.10086\.cn\/biz-orange\/DN\/emotionMarket reject
+# 拦截多个活动悬浮窗 (emotionMarket)
+^https?:\/\/(client\.app\.coc|app)\.10086\.cn\/biz-orange\/DN\/emotionMarket _ reject-200
 
 [MITM]
+# 必须配置主机名，否则 Loon 无法解密并拦截 HTTPS 流量
 hostname = client.app.coc.10086.cn, app.10086.cn
