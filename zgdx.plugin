@@ -1,0 +1,16 @@
+#!name=中国电信去广告
+#!desc=拦截天翼云盘开屏与电信营业厅欢迎动画
+#!author=h
+
+[Rewrite]
+# 拦截天翼云盘 (cloud.189.cn) 开屏启动页
+# 替换为 reject-200 防止 App 报错重试
+^https?:\/\/cloud\.189\.cn\/include\/splash\/ _ reject-200
+
+# 拦截电信营业厅 (zt-app.go189.cn) 欢迎动画图片
+# Loon 也支持 reject-img 策略，完美适配原规则意图
+^https?:\/\/zt-app\.go189\.cn\/zt-app\/welcome\/.*?Animation _ reject-img
+
+[MITM]
+# 必须配置主机名，解密 HTTPS 后重写才能生效
+hostname = cloud.189.cn, zt-app.go189.cn
