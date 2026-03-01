@@ -1,6 +1,10 @@
-#!name=中国移动去广告
-#!desc=拦截中国移动App开屏初始化及多个悬浮窗广告
+#!name=中国移动去广告及加速
+#!desc=拦截开屏广告、悬浮窗，并屏蔽导致卡顿的测速与弹窗接口
 #!author=h
+
+[Rule]
+# 拦截 APM 性能监控
+DOMAIN-SUFFIX, apm.clientaccess.10086.cn, REJECT
 
 [Rewrite]
 # 拦截开屏与初始化广告
@@ -12,6 +16,8 @@
 # 拦截多个活动悬浮窗 (emotionMarket)
 ^https?:\/\/(client\.app\.coc|app)\.10086\.cn\/biz-orange\/DN\/emotionMarket _ reject-200
 
+# 新增：拦截会导致卡顿的活动弹窗 (利用 .*? 匹配所有月份的 toast)
+^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DH\/toast\/.*?\/getToast _ reject-200
+
 [MITM]
-# 必须配置主机名，否则 Loon 无法解密并拦截 HTTPS 流量
 hostname = client.app.coc.10086.cn, app.10086.cn
