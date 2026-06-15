@@ -9,10 +9,6 @@
 
 2026.06.14 修复脚本失效的问题，增加元宝乐园任务。
 
-写本不易，你的支持就是我的动力。若不介意，可以顺手走一下邀请链接，复制文案到app打开即可。
-
-复/&p致[330834256] 下载【小蚕霸王餐】 新用户可抽免单福利! 好运连连, 权益7天内有效 快去商店搜索下载「小蚕霸王餐」吧
-
 环境变量:xcbwc_data
 变量格式: [{"userId":"x-vayne","teemo":"x-teemo","token":"x-sivir","userName":"备注"},{"userId":"x-vayne","teemo":"x-teemo","token":"x-sivir","userName":"备注"}]
 
