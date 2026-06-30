@@ -1,0 +1,10 @@
+#!name=飞客茶馆去广告补充
+#!desc=拦截飞客茶馆 App 内部漏网的广告追踪器与数据上报请求。
+#!author=Yu Qingtu
+#!system=ios
+
+[Rule]
+# 拦截疑似广告聚合平台与 CPA 追踪域名
+DOMAIN-SUFFIX,cpatrk.net,REJECT
+
+# 你后续如果抓到其他只属于飞客的特定广告域名，也可以按上面的格式继续往这里加
