@@ -1,6 +1,6 @@
 #!name=飞客茶馆去广告补充
 #!desc=拦截飞客茶馆 App 内部漏网的广告追踪器与数据上报请求。
-#!author=Yu Qingtu
+#!author=hh
 #!system=ios
 
 [Rule]
